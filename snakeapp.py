@@ -19,6 +19,13 @@ for linhas in range(ROWS):
         grid_html += f'<div style="width:30px; height:30px; background:{cor};"></div>'
 grid_html += '</div>'
 
+if st.button("Mover direita"):
+    coluna_atual, linha_atual= st.session_state.snake[0]
+    nova_cabeca= (coluna_atual +1, linha_atual)
+    st.session_state.snake.insert(0, nova_cabeca)
+    st.session_state.snake.pop()
+   
+
 st.markdown(grid_html, unsafe_allow_html=True)
 
 st.text_input("teste")
